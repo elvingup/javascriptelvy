@@ -17,7 +17,7 @@ let veiculos = [];
 
 let qtdCadastro = prompt("Determine a quantidade de veículos a serem cadastrados: ");
 
-while (veiculos.length < qtdCadastro){ 
+do{ 
     modelo = prompt("Modelo: ");
     ano = prompt("Ano: ");
     cor = prompt("Cor: ");
@@ -60,7 +60,7 @@ while (veiculos.length < qtdCadastro){
         }
     })
 
-};
+} while (veiculos.length < qtdCadastro);
 
 for( v in veiculos){
     console.log(`
