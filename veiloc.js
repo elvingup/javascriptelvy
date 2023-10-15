@@ -64,9 +64,9 @@ do{
 
 for( v in veiculos){
     console.log(`
-        § ---- * L * O * C * A * R * ---- §
-        impressiona qualquer maria-gasolina
-        § --  CADASTRO DE LOCAÇÃO VEICULAR -- §
+        § ------- * L * O * C * A * R * ------- §
+           impressiona qualquer maria-gasolina
+        § ---  CADASTRO DE LOCAÇÃO VEICULAR --- §
         Modelo: ${veiculos[v].modelo}
         Ano: ${veiculos[v].ano}
         Cor: ${veiculos[v].cor}
