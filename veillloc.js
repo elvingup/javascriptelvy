@@ -1,7 +1,7 @@
 /**
  * EXERCÍCIO AULA 1
  *  
- *  Crie um algorítimo para armazenar dados de locação de um veículo.
+ *  Crie um algoritmo para armazenar dados de locação de um veículo.
  * 
  */
 
@@ -21,11 +21,11 @@ console.log(`
             CADASTRE OS VEÍCULOS LOCADOS:       
 `);
 
+let qtdCadastro = prompt("Determine a quantidade de veículos a serem cadastrados: ");
 let descontoPlanokm = prompt("O Plano por Quilometragem tem um desconto no preço da diária. Informe a porcentagem do desconto: ");
 let taxaCombPlanokm = prompt("O Plano por Quilometragem cobra uma taxa sobre o preço do litro do combustível. Informe a porcentagem cobrada sobre o combustível: ");
-if (descontoPlanokm >= 0 && taxaCombPlanokm >= 0) {
-    let qtdCadastro = prompt("Determine a quantidade de veículos a serem cadastrados: ");
-
+if (qtdCadastro>=0 && descontoPlanokm >= 0 && taxaCombPlanokm >= 0) {
+    
     do {
         modelo = prompt("Modelo: ");
         ano = prompt("Ano: ");
