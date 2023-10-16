@@ -69,6 +69,11 @@ if (qtdCadastro>=0 && descontoPlanokm >= 0 && taxaCombPlanokm >= 0) {
         })
 
     } while (veiculos.length < qtdCadastro);
+}else{
+    console.log(`
+    _____________ O dado informado tem o formato inválido. _____________
+    Obs.: informe apenas o caracter numérico, sem letras e nem caracteres especiais.
+    `);
 }
 
 for (v in veiculos) {
