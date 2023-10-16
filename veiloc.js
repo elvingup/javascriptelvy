@@ -9,7 +9,9 @@ let prompt = require('prompt-sync')();
 
 let precodia; let dias; let comb; let km;
 
-let planodias; let planokm;
+let qtdCadastro; let descontoPlanokm; let taxaCombPlanokm;
+
+let repita = true; let planodias; let planokm;
 
 let modelo; let ano; let cor; let placa; let renavam; let chassi;
 
@@ -21,59 +23,65 @@ console.log(`
             CADASTRE OS VEÍCULOS LOCADOS:       
 `);
 
-let qtdCadastro = prompt("Determine a quantidade de veículos a serem cadastrados: ");
-let descontoPlanokm = prompt("O Plano por Quilometragem tem um desconto no preço da diária. Informe a porcentagem do desconto: ");
-let taxaCombPlanokm = prompt("O Plano por Quilometragem cobra uma taxa sobre o preço do litro do combustível. Informe a porcentagem cobrada sobre o combustível: ");
+while (repita) {
 
-if (qtdCadastro>=0 && descontoPlanokm >= 0 && taxaCombPlanokm >= 0) {
-    
-    do {
-        modelo = prompt("Modelo: ");
-        ano = prompt("Ano: ");
-        cor = prompt("Cor: ");
-        placa = prompt("Placa: ");
-        renavam = prompt("Renavam: ");
-        chassi = prompt("Chassi: ")
-        precodia = prompt("Preço da diária: R$ ");
-        dias = prompt("Quantidade de dias: ");
-        km = prompt("Quantidade de quilômetros a serem percorridos: ");
-        comb = prompt("Preço do litro do combustível: R$ ");
+    qtdCadastro = prompt("Determine a quantidade de veículos a serem cadastrados: ");
+    descontoPlanokm = prompt("O Plano por Quilometragem tem um desconto no preço da diária. Informe a porcentagem do desconto: ");
+    taxaCombPlanokm = prompt("O Plano por Quilometragem cobra uma taxa sobre o preço do litro do combustível. Informe a porcentagem cobrada sobre o combustível: ");
 
-        (() => {
-            planodias = precodia * dias;
-            return planodias = planodias.toFixed(2);
-        })();
+    if (qtdCadastro >= 0 && descontoPlanokm >= 0 && taxaCombPlanokm >= 0) {
 
-        (() => {
-            planokm = ((precodia * (descontoPlanokm / 100)) * dias) + ((comb * (taxaCombPlanokm / 100)) * km);
-            return planokm = planokm.toFixed(2);
-        })();
+        do {
+            modelo = prompt("Modelo: ");
+            ano = prompt("Ano: ");
+            cor = prompt("Cor: ");
+            placa = prompt("Placa: ");
+            renavam = prompt("Renavam: ");
+            chassi = prompt("Chassi: ")
+            precodia = prompt("Preço da diária: R$ ");
+            dias = prompt("Quantidade de dias: ");
+            km = prompt("Quantidade de quilômetros a serem percorridos: ");
+            comb = prompt("Preço do litro do combustível: R$ ");
 
-        veiculos.push({
-            modelo: modelo,
-            ano: ano,
-            cor: cor,
-            registro: {
-                placa: placa,
-                renavam: renavam,
-                chassi: chassi
-            },
-            locacao: {
-                precodia: precodia,
-                dias: dias,
-                km: km,
-                comb: comb,
-                planodias: planodias,
-                planokm: planokm
-            }
-        })
+            (() => {
+                planodias = precodia * dias;
+                return planodias = planodias.toFixed(2);
+            })();
 
-    } while (veiculos.length < qtdCadastro);
-}else{
-    console.log(`
+            (() => {
+                planokm = ((precodia * (descontoPlanokm / 100)) * dias) + ((comb * (taxaCombPlanokm / 100)) * km);
+                return planokm = planokm.toFixed(2);
+            })();
+
+            veiculos.push({
+                modelo: modelo,
+                ano: ano,
+                cor: cor,
+                registro: {
+                    placa: placa,
+                    renavam: renavam,
+                    chassi: chassi
+                },
+                locacao: {
+                    precodia: precodia,
+                    dias: dias,
+                    km: km,
+                    comb: comb,
+                    planodias: planodias,
+                    planokm: planokm
+                }
+            })
+
+        } while (veiculos.length < qtdCadastro);
+
+        repita = false;
+
+    } else {
+        console.log(`
     _____________ O dado informado tem o formato inválido. _____________
     Obs.: informe apenas o caracter numérico, sem letras e nem caracteres especiais.
     `);
+    }
 }
 
 for (v in veiculos) {
