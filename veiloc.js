@@ -7,13 +7,10 @@
 
 let prompt = require('prompt-sync')();
 
-let precodia; let dias; let comb; let km;
-
-let qtdCadastro; let descontoPlanokm; let taxaCombPlanokm;
-
-let repita = true; let planodias; let planokm;
-
-let modelo; let ano; let cor; let placa; let renavam; let chassi;
+let precodia, dias, comb, km,
+qtdCadastro, descontoPlanokm, taxaCombPlanokm,
+repita = true, planodias, planokm,
+modelo, ano, cor, placa, renavam, chassi;
 
 let veiculos = [];
 

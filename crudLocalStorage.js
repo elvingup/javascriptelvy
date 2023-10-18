@@ -44,8 +44,9 @@ function insert(dados){
 
 }
 
-function update(){
-
+function update(id){
+    nomePessoa = dados.nome.getAttribute('data-id').innerHTML;
+    
 }
 
 function delet(id){
@@ -66,6 +67,12 @@ const deletar = document.querySelector('.deletar')
 deletar.addEventListener('click', function(){
     let id = deletar.getAttribute('data-id')
     delet(id)
+})
+
+const editar = document.querySelector('.editar')
+editar.addEventListener('click', function(){
+    let id = editar.getAttribute('data-id')
+    update(id)
 })
 
 list();
