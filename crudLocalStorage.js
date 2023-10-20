@@ -45,7 +45,15 @@ function insert(dados){
 }
 
 function update(id){
-    nomePessoa = dados.nome.getAttribute('data-id').innerHTML;
+    let pessoas = (localStorage.pessoas) ? 
+        JSON.parse(localStorage.pessoas) : [];
+
+    pessoas['data-id'].nome = dados.nome.getAttribute('data-id').innerHTML;
+    pessoas['data-id'].nome = '';
+    pessoas['data-id'].email = dados.email.getAttribute('data-id').innerHTML;
+    pessoas['data-id'].email = '';
+    pessoas['data-id'].telefone = dados.telefone.getAttribute('data-id').innerHTML;
+    pessoas['data-id'].telefone = '';
     
 }
 
